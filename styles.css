@@ -1,0 +1,15 @@
+.calculator {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.mathBtns{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.operatorBtns{
+    display: flex;
+    flex-direction: column;
+}
