@@ -53,28 +53,47 @@ function operate(a, b, operator) {
 let allBtns = document.querySelectorAll('button')
 for (const btn of allBtns) {
     btn.addEventListener('click', function(event){
-        let value = event.target.textContent;
-        let numbers = '0123456789.'.split('')
-        let operators = '+-*/='.split('')
-
-        if (numbers.includes(value)){        
-            numberPress(value);
-        } else if(operators.includes(value)){
-            operatorPress(value);
-        } else if (value === "DEL") {
-            currentScreen.textContent = currentScreen.textContent.slice(0, -1);
-            // Clear all button reset everything as it was at the start
-        } else if (value === "Clear All"){
-            a = null;
-            b = null;
-            result = null;
-            operator = null;
-            opSelected = false;
-            currentScreen.textContent = 0;
-            previousScreen.textContent = "";
-        }
+        let arg = event.target.textContent;
+        buttonPress(arg);
     })
-} 
+}
+
+document.body.addEventListener("keyup", (event) => {
+    let keyValue = event.key;
+    switch(keyValue){
+        case "Enter":
+            keyValue = "=";
+            break;
+        case "Backspace":
+            // fall-through
+        case "Delete":
+            keyValue = "DEL"
+            break;
+    }
+    buttonPress(keyValue);
+})
+function buttonPress (arg) {
+    let value = arg;
+    let numbers = '0123456789.'.split('')
+    let operators = '+-*/='.split('')
+
+    if (numbers.includes(value)){        
+        numberPress(value);
+    } else if(operators.includes(value)){
+        operatorPress(value);
+    } else if (value === "DEL") {
+        currentScreen.textContent = currentScreen.textContent.slice(0, -1);
+        // Clear all button reset everything as it was at the start
+    } else if (value === "Clear All"){
+        a = null;
+        b = null;
+        result = null;
+        operator = null;
+        opSelected = false;
+        currentScreen.textContent = 0;
+        previousScreen.textContent = "";
+    }
+}
 
 function numberPress(value){
     if (currentScreen.textContent === "0" || Number(currentScreen.textContent) === result || currentScreen.textContent === result){
