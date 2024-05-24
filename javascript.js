@@ -81,7 +81,11 @@ function numberPress(value){
         currentScreen.textContent = "";
         currentScreen.textContent += value;
     } else if (currentScreen.textContent.length < 10){
-        currentScreen.textContent += value;
+        if (value === "." && currentScreen.textContent.includes(".")) {
+            return;
+        } else{
+            currentScreen.textContent += value;
+        }
     }
 }
 
