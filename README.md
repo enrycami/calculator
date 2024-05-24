@@ -1,0 +1,1 @@
+This is my calculator built as part of The Odin Project course. It's built using HTML, CSS and JavaScript.

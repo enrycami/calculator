@@ -61,7 +61,7 @@ for (const btn of allBtns) {
             numberPress(value);
         } else if(operators.includes(value)){
             operatorPress(value);
-        } else if (value === "Delete") {
+        } else if (value === "DEL") {
             currentScreen.textContent = currentScreen.textContent.slice(0, -1);
             // Clear all button reset everything as it was at the start
         } else if (value === "Clear All"){

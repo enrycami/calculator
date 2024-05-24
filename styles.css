@@ -1,15 +1,60 @@
+* {
+  box-sizing: border-box;  
+  font-family: Verdana, Tahoma, sans-serif;
+  font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, aquamarine, lightgreen);
+}
+
 .calculator {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+    margin-top: 20px;
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+    align-content: center;
+    height: 90vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: 1.5fr repeat(5, 1fr);
 }
 
-.mathBtns{
-    display: flex;
-    flex-wrap: wrap;
+.calculator > button {
+    cursor: pointer;
+    font-size: 2rem;
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, .75);
 }
 
-.operatorBtns{
+.calculator > button:hover {
+    background-color: rgba(255, 255, 255, .90);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.screens {
+    grid-column: 1 / -1;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, .80);
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.screens #previousScreen{
+    color: rgba(255, 255, 255, .85);
+    font-size: 1.5rem;
+}
+
+.screens #currentScreen{
+    color: white;
+    font-size: 2.5rem;
 }
